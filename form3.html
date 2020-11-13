@@ -40,36 +40,35 @@
                     <br>
                     <i>If you are getting any type of government health care coverage, such as FAMIS, Medicaid, or Medicare, you should not check the box.</i>
                 </div>
-				<form class="my-5">
+				<form class="my-5" method="post" onsubmit="return validateForm(event)">
 					<!-- Subheading -->
-					<h5 class="mt-5">Who has health insurance right now?</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox">
+					<span class="mt-5"></span>
+					<span id="error" style="color: red; font-style: italic;"></span>
+					<h5>Who has health insurance right now?</h5>
+                    <div class="form-check checkbox-group required">
+                        <input class="form-check-input" type="checkbox" name="checkbox_name[]">
                         <label class="form-check-label">
                             You
                         </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox">
+                    <br>
+                        <input class="form-check-input" type="checkbox" name="checkbox_name[]">
                         <label class="form-check-label">
                             Kasey
                         </label>
-                    </div> 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox">
+                    <br>
+                        <input class="form-check-input" type="checkbox" name="checkbox_name[]">
                         <label class="form-check-label">
                             Mike
                         </label>
-                    </div> 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox">
+                    <br>
+                        <input class="form-check-input" type="checkbox" name="checkbox_name[]">
                         <label class="form-check-label">
                             No one
                         </label>
-                    </div>            
+					</div>    
                     <!-- Change back and next form links -->
 					<div class="pt-5">
-                        <button type="button" class="btn btn-lg btn-primary float-right" onclick="location.href='form4.html';">Next</button>
+                        <button type="submit" class="btn btn-lg btn-primary float-right">Next</button>
                         <button type="button" class="btn btn-lg btn-primary float-right mr-3">Back</button>
 					</div>
 				</form>
@@ -81,5 +80,16 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	</body>
+
+		<script>
+			function validateForm(event) {
+				event.preventDefault();
+				if ($('div.checkbox-group.required :checkbox:checked').length > 0)
+					window.location.href='form4.html';
+				else {
+					document.getElementById('error').innerHTML = '* This question is required.';
+					alert("Please fill out all fields");
+				}
+			}
+		</script>	</body>
 </html>

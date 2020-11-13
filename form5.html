@@ -43,7 +43,7 @@
                     <h2>Household Details</h2>
                     <i>Health insurance means a plan that covers visits to the doctor. If your plan covers dental visits only, you should not check the box.</i>
                 </div>
-				<form class="my-5">
+				<form class="my-5" method="post" onsubmit="return validateForm(event)">
 					<!-- Subheading -->
                     <div class=" d-inline-block">
                         <span class="mt-5 question">Is anyone receiving TANF?</span>
@@ -52,14 +52,13 @@
                             data-container="body" data-toggle="popover" data-placement="right" data-content="Temporary Assistance for Needy Families is a federal assistance program that provides eligible families with a monthly cash payment to meet basic needs.">
                         </button>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio">
+                    <div class="form-check required">
+                        <input class="form-check-input" type="radio" name="tanf" value="yes" required>
                         <label class="form-check-label">
                             Yes
                         </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio">
+                    <br>
+                        <input class="form-check-input" type="radio" name="tanf" value="no">
                         <label class="form-check-label">
                             No
                         </label>
@@ -73,14 +72,13 @@
                             data-container="body" data-toggle="popover" data-placement="right" data-content="A legal guardian is a person who has the legal authority to care for the personal and property interests of another person.">
                         </button>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio">
+                    <div class="form-check required">
+                        <input class="form-check-input" type="radio" name="guardian" value="yes" required>
                         <label class="form-check-label">
                             Yes
                         </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio">
+                    <br>
+                        <input class="form-check-input" type="radio" name="guardian" value="no">
                         <label class="form-check-label">
                             No
                         </label>
@@ -88,7 +86,7 @@
                     
                     <!-- Change back and next form links -->
 					<div class="pt-5">
-                        <button type="button" class="btn btn-lg btn-primary float-right" onclick="location.href='form6.html';">Next</button>
+                        <button type="submit" class="btn btn-lg btn-primary float-right">Next</button>
                         <button type="button" class="btn btn-lg btn-primary float-right mr-3">Back</button>
 					</div>
 				</form>
@@ -100,7 +98,14 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </body>
+
+		<script>
+			function validateForm(event) {
+				event.preventDefault();
+				console.log("hi");
+				window.location.href='form6.html';
+			}
+		</script>    </body>
 
     <script>
         $(function () {
